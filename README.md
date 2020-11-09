@@ -1,24 +1,19 @@
-# Foobar
+# SWWebApp
 
-Foobar is a Python library for dealing with word pluralization.
+SwWebApp is an integration of the swapi (https://swapi.dev/) which is exposing two services that will retrieve information about swapi.People and swapi.Starship sorted by its name and creation date.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Just start @SpringBootApplication [SWWebApplication] and the following services will be exposed for you.
 
-```bash
-pip install foobar
-```
 
-## Usage
+## REST Api Usage
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+1.- People service.
+URL : http://localhost:8080/people
+http method : GET
+Params :  [paramName]('name' , 'created)| [order]('asc' , 'desc)
+Example 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
