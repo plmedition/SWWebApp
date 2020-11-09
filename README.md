@@ -13,12 +13,15 @@ Just start @SpringBootApplication [SWWebApplication] and the following services 
 URL : http://localhost:8080/people
 http method : GET
 Params :  [paramName]('name' , 'created)| [order]('asc' , 'desc)
-Example 
+Example : curl -X GET "http://localhost:8080/people?paramName=created&order=asc"
+
+2.- Starships service
+URL : http://localhost:8080/starships
+http method : GET
+Params :  [paramName]('name' , 'created)| [order]('asc' , 'desc)
+Example : curl -X GET "http://localhost:8080/starships?paramName=created&order=asc"
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Contributions are not still opened.
 
-Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
