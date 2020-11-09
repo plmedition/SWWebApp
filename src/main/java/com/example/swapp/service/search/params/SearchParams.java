@@ -7,7 +7,7 @@ public class SearchParams implements Serializable {
     private ParamNameEnum paramNameEnum;
     private SortCriteriaEnum sortCriteriaEnum;
 
-
+    public SearchParams() {}
 
     public SearchParams(ParamNameEnum paramNameEnum, SortCriteriaEnum sortCriteriaEnum) {
         this.paramNameEnum = paramNameEnum;

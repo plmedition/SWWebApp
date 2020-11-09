@@ -21,39 +21,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ContextConfiguration()
 @SpringBootTest
-/*@TestPropertySource(properties = {"swapi.people.url=https://swapi.dev/api/people/",
-                                  "swapi.starship.url=https://swapi.dev/api/starships/"})*/
 public class SwapiServiceImplTest {
 
-   /* @TestConfiguration
-    public static class SpringContext {
-        @Bean
-        public SwapiService swapiService() {
-            return new SwapiServiceImpl();
-        }
-
-        @Bean
-        public RestTemplate restTemplate() {
-            return new RestTemplate();
-        }
-
-        @Bean
-        public ObjectMapper objectMapper() {
-            return new ObjectMapper();
-        }
-
-        @Bean
-        public PeopleMapper peopleMapper() {
-            return new PeopleMapper();
-        }
-
-        @Bean
-        public StarshipMapper starshipMapper() {
-            return new StarshipMapper();
-        }
-    }*/
-
-    @Autowired
+   @Autowired
     public SwapiService swapiService;
 
     @Test
