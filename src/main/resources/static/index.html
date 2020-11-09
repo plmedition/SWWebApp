@@ -1,0 +1,105 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Hello World Example</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            // Get the button object by it's id.
+            var button = jQuery('#search_button')
+            // When click this button then execute below function.
+            button.bind('click', function () {
+                var api = $("#api").val();
+                var paramName = $("#paramName").val()
+                var order = $("#order").val();
+                $("#result_table tr").remove();
+                $.ajax({
+                    url: 'http://localhost:8080/'.concat(api),
+                    type: 'get',
+                    data: {
+                        paramName: paramName,
+                        order: order
+                    },
+                    success: function (response) {
+                        $("#result_table tr").remove();
+                        if (api == "/people") {
+                            $('<tr>').append(
+                                $('<td>').text("Name"),
+                                $('<td>').text("Created"),
+                                $('<td>').text("Height"),
+                                $('<td>').text("Mass"),
+                                $('<td>').text("URL")
+                            ).appendTo('#result_table');
+                            $.each(response, function (i, item) {
+                                var $tr = $('<tr>').append(
+                                    $('<td>').text(item.name),
+                                    $('<td>').text(item.created),
+                                    $('<td>').text(item.height),
+                                    $('<td>').text(item.mass),
+                                    $('<td>').text(item.url)
+                                ).appendTo('#result_table');
+                            });
+                        }
+                        if (api == "/starships") {
+                            $('<tr>').append(
+                                $('<td>').text("Name"),
+                                $('<td>').text("Created"),
+                                $('<td>').text("Model"),
+                                $('<td>').text("Manufacturer"),
+                                $('<td>').text("Length")
+                            ).appendTo('#result_table');
+                            $.each(response, function (i, item) {
+                                var $tr = $('<tr>').append(
+                                    $('<td>').text(item.name),
+                                    $('<td>').text(item.created),
+                                    $('<td>').text(item.model),
+                                    $('<td>').text(item.manufacturer),
+                                    $('<td>').text(item.length)
+                                ).appendTo('#result_table');
+                            });
+                        }
+
+                    }
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+<p>
+    People:
+    <select name="api" id="api">
+        <option value="/people">People</option>
+        <option value="/starships">Starships</option>
+    </select>
+</p>
+<p>
+    ParamName:
+    <select name="paramName" id="paramName">
+        <option value="name">name</option>
+        <option value="created">created</option>
+    </select>
+</p>
+<p>
+    Order:
+    <select name="order" id="order">
+        <option value="asc">asc</option>
+        <option value="desc">desc</option>
+    </select>
+</p>
+
+<button id="search_button">
+    Search
+</button>
+
+<p>Result:</p>
+<table id="result_table">
+</table>
+</body>
+</html>
