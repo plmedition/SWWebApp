@@ -18,22 +18,22 @@ Just start @SpringBootApplication [SWWebApplication] and the following services 
 ## REST Api Usage
 
 1.- People service.
-URL : http://localhost:6969/people
+URL : http://localhost:8080/people
 http method : GET
 Params :  [paramName]('name' , 'created)| [order]('asc' , 'desc)
-Example : curl -X GET "http://localhost:6969/people?paramName=created&order=asc"
+Example : curl -X GET "http://localhost:8080/people?paramName=created&order=asc"
 
 2.- Starships service
-URL : http://localhost:6969/starships
+URL : http://localhost:8080/starships
 http method : GET
 Params :  [paramName]('name' , 'created)| [order]('asc' , 'desc)
-Example : curl -X GET "http://localhost:6969/starships?paramName=created&order=asc"
+Example : curl -X GET "http://localhost:8080/starships?paramName=created&order=asc"
 
 ## UI
 
 There is a small UI provided(no fancy stuff) that can help you to visualize the responses of these APIS in a clear way.
 
-This is accesible through : http://localhost:6969/index.html
+This is accesible through : http://localhost:8080/index.html
 
 ## Contributing
 Contributions are not still opened.
