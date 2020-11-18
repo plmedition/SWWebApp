@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ecosystem</groupId>
 	<artifactId>SWWebApp</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>Star Wars Web Application</name>
 	<description>Adaption of swapi for ecosystem</description>
 
