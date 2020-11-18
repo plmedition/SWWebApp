@@ -1,6 +1,6 @@
 package com.example.swapp.swapi.response;
 
-import com.example.swapp.Starship;
+import com.example.swapp.object.Starship;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;

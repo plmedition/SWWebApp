@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.Date;
 
 /**
- * DTO to encapsulate the {@link com.example.swapp.People} attributes that will be exposed in the API
+ * DTO to encapsulate the {@link com.example.swapp.object.People} attributes that will be exposed in the API
  */
 public class PeopleDTO extends ObjectDTO {
 

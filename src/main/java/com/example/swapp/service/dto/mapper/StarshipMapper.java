@@ -1,6 +1,6 @@
 package com.example.swapp.service.dto.mapper;
 
-import com.example.swapp.Starship;
+import com.example.swapp.object.Starship;
 import com.example.swapp.service.dto.StarshipDTO;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

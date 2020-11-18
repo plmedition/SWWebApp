@@ -1,6 +1,6 @@
 package com.example.swapp.swapi.response;
 
-import com.example.swapp.People;
+import com.example.swapp.object.People;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;

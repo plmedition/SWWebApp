@@ -1,6 +1,6 @@
 package com.example.swapp.service.dto.mapper;
 
-import com.example.swapp.People;
+import com.example.swapp.object.People;
 import com.example.swapp.service.dto.PeopleDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

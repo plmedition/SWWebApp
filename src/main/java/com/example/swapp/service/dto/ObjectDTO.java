@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**
- * DTO to encapsulate the common attributes for both {@link com.example.swapp.People} and {@link com.example.swapp.Starship}
+ * DTO to encapsulate the common attributes for both {@link com.example.swapp.object.People} and {@link com.example.swapp.object.Starship}
  * attributes that will be exposed in the API
  */
 public class ObjectDTO {

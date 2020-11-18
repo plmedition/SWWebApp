@@ -2,7 +2,7 @@ package com.example.swapp.service.dto;
 
 import java.util.Date;
 /**
- * DTO to encapsulate the {@link com.example.swapp.Starship} attributes that will be exposed in the API
+ * DTO to encapsulate the {@link com.example.swapp.object.Starship} attributes that will be exposed in the API
  */
 public class StarshipDTO extends ObjectDTO {
 
