@@ -2,6 +2,10 @@
 
 SwWebApp is an integration of the swapi (https://swapi.dev/) which is exposing two services that will retrieve information about swapi.People and swapi.Starship sorted by its name and creation date.
 
+This API must receive these two mandatory params : 
+
+"paramName" : ["name" | "created"]    &   "created" : ["asc" | "desc"]
+
 ## Installation
 
 Just start @SpringBootApplication [SWWebApplication] and the following services will be exposed for you.
