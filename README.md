@@ -4,7 +4,7 @@ SwWebApp is an integration of the swapi (https://swapi.dev/) which is exposing t
 
 This API must receive these two mandatory params : 
 
-"paramName" : ["name" | "created"]    &   "created" : ["asc" | "desc"]
+"paramName" : ["name" | "created"]    &   "order" : ["asc" | "desc"]
 
 ## Installation
 
