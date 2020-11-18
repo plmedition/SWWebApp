@@ -2,31 +2,35 @@ package com.example.swapp.service.search.params;
 
 import java.io.Serializable;
 
+/**
+ *
+ */
 public class SearchParams implements Serializable {
 
-    private ParamNameEnum paramNameEnum;
-    private SortCriteriaEnum sortCriteriaEnum;
+
+    private String paramName;
+    private String order;
 
     public SearchParams() {}
 
-    public SearchParams(ParamNameEnum paramNameEnum, SortCriteriaEnum sortCriteriaEnum) {
-        this.paramNameEnum = paramNameEnum;
-        this.sortCriteriaEnum = sortCriteriaEnum;
+    public SearchParams(String paramName, String order) {
+        this.paramName = paramName;
+        this.order = order;
     }
 
-    public ParamNameEnum getParamNameEnum() {
-        return paramNameEnum;
+    public String getParamName() {
+        return paramName;
     }
 
-    public void setParamNameEnum(ParamNameEnum paramNameEnum) {
-        this.paramNameEnum = paramNameEnum;
+    public void setParamName(String paramName) {
+        this.paramName = paramName;
     }
 
-    public SortCriteriaEnum getSortCriteriaEnum() {
-        return sortCriteriaEnum;
+    public String getOrder() {
+        return order;
     }
 
-    public void setSortCriteriaEnum(SortCriteriaEnum sortCriteriaEnum) {
-        this.sortCriteriaEnum = sortCriteriaEnum;
+    public void setOrder(String order) {
+        this.order = order;
     }
 }

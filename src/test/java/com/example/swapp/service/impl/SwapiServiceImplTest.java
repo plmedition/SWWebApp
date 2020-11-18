@@ -1,12 +1,10 @@
 package com.example.swapp.service.impl;
 
 import com.example.swapp.service.SwapiService;
-import com.example.swapp.service.dto.ObjectDTO;
-import com.example.swapp.service.dto.PeopleDTO;
-import com.example.swapp.service.dto.StarshipDTO;
+import com.example.swapp.service.dto.*;
+import com.example.swapp.service.search.params.OrderEnum;
 import com.example.swapp.service.search.params.ParamNameEnum;
 import com.example.swapp.service.search.params.SearchParams;
-import com.example.swapp.service.search.params.SortCriteriaEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,85 +21,85 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 public class SwapiServiceImplTest {
 
-   @Autowired
+    @Autowired
     public SwapiService swapiService;
 
     @Test
-    void getAllPeople() {
-        List<PeopleDTO> peopleDTOList = swapiService.getPeople(null);
+    void retrieveAllPeopleTest() {
+        List<PeopleDTO> peopleDTOList = swapiService.retrievePeople(null);
         assertNotNull(peopleDTOList, "People list is null");
         assertTrue(!peopleDTOList.isEmpty(), "People list is empty.");
     }
 
     @Test
-    void getAllStarships() {
-        List<StarshipDTO> starshipDTOList = swapiService.getStarships(null);
+    void retrieveAllStarshipsTest() {
+        List<StarshipDTO> starshipDTOList = swapiService.retrieveStarships(null);
         assertNotNull(starshipDTOList, "Starship list is null");
         assertTrue(!starshipDTOList.isEmpty(), "Starship list is empty.");
     }
 
     @Test
-    void getPeopleSortByNameAsc() {
-        List<PeopleDTO> peopleDTOList = swapiService.getPeople(new SearchParams(ParamNameEnum.NAME, SortCriteriaEnum.ASC));
+    void retrievePeopleSortByNameAscTest() {
+        List<PeopleDTO> peopleDTOList = swapiService.retrievePeople(new SearchParams(ParamNameEnum.NAME.name(), OrderEnum.ASC.name()));
         assertNotNull(peopleDTOList, "People list is null");
         assertTrue(!peopleDTOList.isEmpty(), "People list is empty.");
-        assertTrue(isPeopleDTOListSorted(peopleDTOList, new ObjectDTO.NameComparator(), true, false), "The list is not asc sorted by name.");
+        assertTrue(isPeopleDTOListSorted(peopleDTOList, new NameComparator(), true, false), "The list is not asc sorted by name.");
     }
 
     @Test
-    void getPeopleSortByNameDesc() {
-        List<PeopleDTO> peopleDTOList = swapiService.getPeople(new SearchParams(ParamNameEnum.NAME, SortCriteriaEnum.DESC));
+    void retrievePeopleSortByNameDescTest() {
+        List<PeopleDTO> peopleDTOList = swapiService.retrievePeople(new SearchParams(ParamNameEnum.NAME.name(), OrderEnum.DESC.name()));
         assertNotNull(peopleDTOList, "People list is null");
         assertTrue(!peopleDTOList.isEmpty(), "People list is empty.");
-        assertTrue(isPeopleDTOListSorted(peopleDTOList, new ObjectDTO.NameComparator(), false, true), "The list is not desc sorted by name.");
+        assertTrue(isPeopleDTOListSorted(peopleDTOList, new NameComparator(), false, true), "The list is not desc sorted by name.");
     }
 
     @Test
-    void getPeopleSortByCreatedAsc() {
-        List<PeopleDTO> peopleDTOList = swapiService.getPeople(new SearchParams(ParamNameEnum.CREATED, SortCriteriaEnum.ASC));
+    void retrievePeopleSortByCreatedAscTest() {
+        List<PeopleDTO> peopleDTOList = swapiService.retrievePeople(new SearchParams(ParamNameEnum.CREATED.name(), OrderEnum.ASC.name()));
         assertNotNull(peopleDTOList, "People list is null");
         assertTrue(!peopleDTOList.isEmpty(), "People list is empty.");
-        assertTrue(isPeopleDTOListSorted(peopleDTOList, new ObjectDTO.DateComparator(), true, false), "The list is not asc sorted by created.");
+        assertTrue(isPeopleDTOListSorted(peopleDTOList, new DateComparator(), true, false), "The list is not asc sorted by created.");
     }
 
     @Test
-    void getPeopleSortByCreatedDesc() {
-        List<PeopleDTO> peopleDTOList = swapiService.getPeople(new SearchParams(ParamNameEnum.CREATED, SortCriteriaEnum.DESC));
+    void retrievePeopleSortByCreatedDescTest() {
+        List<PeopleDTO> peopleDTOList = swapiService.retrievePeople(new SearchParams(ParamNameEnum.CREATED.name(), OrderEnum.DESC.name()));
         assertNotNull(peopleDTOList, "People list is null");
         assertTrue(!peopleDTOList.isEmpty(), "People list is empty.");
-        assertTrue(isPeopleDTOListSorted(peopleDTOList, new ObjectDTO.DateComparator(), false, true), "The list is not desc sorted by created.");
+        assertTrue(isPeopleDTOListSorted(peopleDTOList, new DateComparator(), false, true), "The list is not desc sorted by created.");
     }
 
     @Test
-    void getStarshipSortByNameAsc() {
-        List<StarshipDTO> starshipDTOList = swapiService.getStarships(new SearchParams(ParamNameEnum.NAME, SortCriteriaEnum.ASC));
+    void retrieveStarshipSortByNameAscTest() {
+        List<StarshipDTO> starshipDTOList = swapiService.retrieveStarships(new SearchParams(ParamNameEnum.NAME.name(), OrderEnum.ASC.name()));
         assertNotNull(starshipDTOList, "Starship list is null");
         assertTrue(!starshipDTOList.isEmpty(), "Starship list is empty.");
-        assertTrue(isStarshipDTOListSorted(starshipDTOList, new ObjectDTO.NameComparator(), true, false), "The list is not asc sorted by name.");
+        assertTrue(isStarshipDTOListSorted(starshipDTOList, new NameComparator(), true, false), "The list is not asc sorted by name.");
     }
 
     @Test
-    void getStarshipSortByNameDesc() {
-        List<StarshipDTO> starshipDTOList = swapiService.getStarships(new SearchParams(ParamNameEnum.NAME, SortCriteriaEnum.DESC));
+    void retrieveStarshipSortByNameDescTest() {
+        List<StarshipDTO> starshipDTOList = swapiService.retrieveStarships(new SearchParams(ParamNameEnum.NAME.name(), OrderEnum.DESC.name()));
         assertNotNull(starshipDTOList, "Starship list is null");
         assertTrue(!starshipDTOList.isEmpty(), "Starship list is empty.");
-        assertTrue(isStarshipDTOListSorted(starshipDTOList, new ObjectDTO.NameComparator(), false, true), "The list is not desc sorted by name.");
+        assertTrue(isStarshipDTOListSorted(starshipDTOList, new NameComparator(), false, true), "The list is not desc sorted by name.");
     }
 
     @Test
-    void getStarshipSortByCreatedAsc() {
-        List<StarshipDTO> starshipDTOList = swapiService.getStarships(new SearchParams(ParamNameEnum.CREATED, SortCriteriaEnum.ASC));
+    void retrieveStarshipSortByCreatedAscTest() {
+        List<StarshipDTO> starshipDTOList = swapiService.retrieveStarships(new SearchParams(ParamNameEnum.CREATED.name(), OrderEnum.ASC.name()));
         assertNotNull(starshipDTOList, "Starship list is null");
         assertTrue(!starshipDTOList.isEmpty(), "Starship list is empty.");
-        assertTrue(isStarshipDTOListSorted(starshipDTOList, new ObjectDTO.DateComparator(), true, false), "The list is not asc sorted by created.");
+        assertTrue(isStarshipDTOListSorted(starshipDTOList, new DateComparator(), true, false), "The list is not asc sorted by created.");
     }
 
     @Test
-    void getStarshipSortByCreatedDesc() {
-        List<StarshipDTO> starshipDTOList = swapiService.getStarships(new SearchParams(ParamNameEnum.CREATED, SortCriteriaEnum.DESC));
+    void retrieveStarshipSortByCreatedDescTest() {
+        List<StarshipDTO> starshipDTOList = swapiService.retrieveStarships(new SearchParams(ParamNameEnum.CREATED.name(), OrderEnum.DESC.name()));
         assertNotNull(starshipDTOList, "Starship list is null");
         assertTrue(!starshipDTOList.isEmpty(), "Starship list is empty.");
-        assertTrue(isStarshipDTOListSorted(starshipDTOList, new ObjectDTO.DateComparator(), false, true), "The list is not desc sorted by created.");
+        assertTrue(isStarshipDTOListSorted(starshipDTOList, new DateComparator(), false, true), "The list is not desc sorted by created.");
     }
 
     private boolean isPeopleDTOListSorted(List<PeopleDTO> peopleDTOList, Comparator<ObjectDTO> comparator, boolean asc, boolean desc) {

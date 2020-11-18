@@ -1,5 +1,5 @@
 package com.example.swapp.service.search.params;
 
-public enum SortCriteriaEnum {
+public enum OrderEnum {
     ASC, DESC;
 }

@@ -1,7 +1,9 @@
 package com.example.swapp.service.dto;
 
 import java.util.Date;
-
+/**
+ * DTO to encapsulate the {@link com.example.swapp.Starship} attributes that will be exposed in the API
+ */
 public class StarshipDTO extends ObjectDTO {
 
     private String model;
@@ -9,8 +11,7 @@ public class StarshipDTO extends ObjectDTO {
     private String length;
 
     public StarshipDTO(String name, Date created, String model, String manufacturer, String length) {
-        this.name = name;
-        this.created = created;
+        super(name, created);
         this.model = model;
         this.manufacturer = manufacturer;
         this.length = length;

@@ -2,14 +2,22 @@ package com.example.swapp.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.util.Comparator;
 import java.util.Date;
 
+/**
+ * DTO to encapsulate the common attributes for both {@link com.example.swapp.People} and {@link com.example.swapp.Starship}
+ * attributes that will be exposed in the API
+ */
 public class ObjectDTO {
 
     protected String name;
-    @JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     protected Date created;
+
+    public ObjectDTO(String name, Date created) {
+        this.name = name;
+        this.created = created;
+    }
 
     public String getName() {
         return name;
@@ -25,19 +33,5 @@ public class ObjectDTO {
 
     public void setCreated(Date created) {
         this.created = created;
-    }
-
-    public static class NameComparator implements Comparator<ObjectDTO> {
-        @Override
-        public int compare(ObjectDTO o1, ObjectDTO o2) {
-            return o1.name.compareTo(o2.name);
-        }
-    }
-
-    public static class DateComparator implements Comparator<ObjectDTO> {
-        @Override
-        public int compare(ObjectDTO o1, ObjectDTO o2) {
-            return o1.created.compareTo(o2.created);
-        }
     }
 }

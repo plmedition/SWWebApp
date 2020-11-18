@@ -3,6 +3,9 @@ package com.example.swapp.service.dto;
 import java.net.URI;
 import java.util.Date;
 
+/**
+ * DTO to encapsulate the {@link com.example.swapp.People} attributes that will be exposed in the API
+ */
 public class PeopleDTO extends ObjectDTO {
 
     private String height;
@@ -10,8 +13,7 @@ public class PeopleDTO extends ObjectDTO {
     private URI url;
 
     public PeopleDTO(String name, Date created, String height, String mass, URI url) {
-        this.name = name;
-        this.created = created;
+        super(name, created);
         this.height = height;
         this.mass = mass;
         this.url = url;

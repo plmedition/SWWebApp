@@ -1,14 +1,14 @@
 package com.example.swapp.service.dto.mapper;
 
-import com.example.swapp.People;
 import com.example.swapp.Starship;
-import com.example.swapp.service.dto.PeopleDTO;
 import com.example.swapp.service.dto.StarshipDTO;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class StarshipMapper {
 
     public StarshipDTO mapToStarshipDTO(Starship starship) {

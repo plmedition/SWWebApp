@@ -14,7 +14,7 @@ public interface SwapiService {
      * @param searchParams Search criteria based on swapi "Name" or "Created" params
      * @return a list of {@link PeopleDTO}
      */
-    List<PeopleDTO> getPeople(SearchParams searchParams);
+    List<PeopleDTO> retrievePeople(SearchParams searchParams);
 
     /**
      * Get a list of {@link StarshipDTO} based on the response of de swapi "/starships" service
@@ -22,6 +22,6 @@ public interface SwapiService {
      * @param searchParams Search criteria based on swapi "Name" or "Created" params
      * @return a list of {@link StarshipDTO}
      */
-    List<StarshipDTO> getStarships(SearchParams searchParams);
+    List<StarshipDTO> retrieveStarships(SearchParams searchParams);
 
 }

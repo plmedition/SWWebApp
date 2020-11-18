@@ -1,12 +1,14 @@
 package com.example.swapp.controller;
 
+import com.example.swapp.builder.SWWebAppBuilder;
+import com.example.swapp.exception.SWWebAppException;
 import com.example.swapp.service.SwapiService;
 import com.example.swapp.service.dto.PeopleDTO;
 import com.example.swapp.service.dto.StarshipDTO;
-import com.example.swapp.service.search.params.ParamNameEnum;
 import com.example.swapp.service.search.params.SearchParams;
-import com.example.swapp.service.search.params.SortCriteriaEnum;
+import com.example.swapp.validator.SWWebAppValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,27 +18,39 @@ import java.util.List;
 @RestController
 public class SWWebAppController {
 
+
+    private SwapiService swapiService;
+    private SWWebAppBuilder swWebAppBuilder;
+    private SWWebAppValidator swWebAppValidator;
+
     @Autowired
-    SwapiService swapiService;
+    public SWWebAppController(SwapiService swapiService, SWWebAppBuilder swWebAppBuilder, SWWebAppValidator swWebAppValidator) {
+        this.swapiService = swapiService;
+        this.swWebAppBuilder = swWebAppBuilder;
+        this.swWebAppValidator = swWebAppValidator;
+    }
 
     @GetMapping("/people")
-    public List<PeopleDTO> getPeople(@RequestParam(value = "paramName", required = false) String paramName,
-                                     @RequestParam(value = "order", required = false) String order) {
-        SearchParams searchParams = initializeSearchParams(paramName, order);
-        return swapiService.getPeople(searchParams);
+    public ResponseEntity<List<PeopleDTO>> getPeople(@RequestParam(value = "paramName", required = false) String paramName,
+                                                     @RequestParam(value = "order", required = false) String order) throws SWWebAppException {
+
+        SearchParams searchParams = swWebAppBuilder.buildSearchParams(paramName, order);
+        swWebAppValidator.validateSearchParams(searchParams);
+        List<PeopleDTO> peopleDTOList = swapiService.retrievePeople(searchParams);
+
+        return swWebAppBuilder.buildPeopleResponse(peopleDTOList);
     }
 
     @GetMapping("/starships")
-    public List<StarshipDTO> getStarships(@RequestParam(value = "paramName", required = false) String paramName,
-                                          @RequestParam(value = "order", required = false) String order) {
-        SearchParams searchParams = initializeSearchParams(paramName, order);
-        return swapiService.getStarships(searchParams);
+    public ResponseEntity<List<StarshipDTO>> getStarships(@RequestParam(value = "paramName", required = false) String paramName,
+                                                          @RequestParam(value = "order", required = false) String order) throws SWWebAppException {
+
+        SearchParams searchParams = swWebAppBuilder.buildSearchParams(paramName, order);
+        swWebAppValidator.validateSearchParams(searchParams);
+        List<StarshipDTO> starshipDTOList = swapiService.retrieveStarships(searchParams);
+
+        return swWebAppBuilder.buildStarshipResponse(starshipDTOList);
     }
 
-    private SearchParams initializeSearchParams(String paramName, String order){
-        SearchParams searchParams = new SearchParams();
-        searchParams.setParamNameEnum(paramName == null?null: ParamNameEnum.valueOf(paramName.toUpperCase()));
-        searchParams.setSortCriteriaEnum(order == null?null: SortCriteriaEnum.valueOf(order.toUpperCase()));
-        return searchParams;
-    }
+
 }
