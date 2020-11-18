@@ -6,6 +6,10 @@ This API must receive these two mandatory params :
 
 "paramName" : ["name" | "created"]    &   "order" : ["asc" | "desc"]
 
+##Prerequisites
+
+To build this application you must have installed Apache Maven 3.6.3 [https://maven.apache.org/download.cgi]
+
 ## Installation
 
 Just start @SpringBootApplication [SWWebApplication] and the following services will be exposed for you.
