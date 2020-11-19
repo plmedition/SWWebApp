@@ -33,7 +33,7 @@ Example : curl -X GET "http://localhost:8080/starships?paramName=created&order=a
 
 There is a small UI provided(no fancy stuff) that can help you to visualize the responses of these APIS in a clear way.
 
-This is accesible through : http://localhost:8080/index.html
+This is not accessible by the normal startup of Spring Boot. Please check the documentation for this in the Docker Hub project.
 
 ## Contributing
 Contributions are not still opened.
